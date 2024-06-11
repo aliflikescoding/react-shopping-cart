@@ -18,7 +18,7 @@ const Header = ({ cartNum }) => {
 
   return (
     <>
-      <header className="text-text relative flex items-center justify-between md:justify-around p-3 border-b-[1px]">
+      <header className="text-text relative flex items-center justify-between md:justify-around p-3 border-b-[1px] font-montserrat">
         <a className="flex items-center gap-2 cursor-pointer">
           <img src={logo} alt="logo" className="w-[75px]"/>
           <h1 className="hidden sm:block text-4xl text-montserrat font-bold uppercase"><span className="text-primary">Shopping</span><span className="text-secondary">Market</span></h1>
