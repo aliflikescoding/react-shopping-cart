@@ -1,8 +1,10 @@
+import Header from "./sections/Header"
+
 function App() {
   return (
-    <div>
-        
-    </div>
+    <main>
+      <Header cartNum={0}/>
+    </main>
   )
 }
 
