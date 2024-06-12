@@ -9,11 +9,13 @@ import CartPage from './pages/CartPage';
 import NotFound from './pages/NotFound';
 import ProductPage from './pages/ProductPage';
 import Footer from './sections/Footer';
+import { ChakraProvider } from '@chakra-ui/react'
 import './index.css';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <ChakraProvider>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route index element={<HomePage />} />
@@ -24,7 +26,8 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
-    </BrowserRouter>
+      </BrowserRouter>
+    </ChakraProvider>
   );
 };
 
