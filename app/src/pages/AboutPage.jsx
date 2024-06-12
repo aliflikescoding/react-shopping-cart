@@ -19,7 +19,7 @@ const AboutPage = () => {
           <img src={image} alt="person on a laptop" className="w-[600px] rounded-lg"/>
         </div>
       </div>
-      <div className="p-12 border-b-2">
+      <div className="p-12">
         <h1 className="text-3xl font-bold">Why Shopping Market?</h1>
         <div className="flex flex-col sm:flex-row gap-12 mt-6">
           <div>
