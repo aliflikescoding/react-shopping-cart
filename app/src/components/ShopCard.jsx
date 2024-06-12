@@ -22,7 +22,7 @@ const ShopCard = ({ id, title, price, category, images }) => {
       className="flex flex-col border-2 cursor-pointer p-5 w-[350px] rounded-xl shadow-xl"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      to={`shop/${id}`} 
+      to={`/shop/${id}`} 
       >
       <div className="flex flex-col gap-4 justify-start items-start">
         <img src={`${isHovered ? images[1] : images[0]}`} alt="product image" className='w-[300px] rounded-xl'/>
