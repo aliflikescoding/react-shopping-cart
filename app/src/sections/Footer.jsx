@@ -10,8 +10,7 @@ const Footer = () => {
         <FaGithub />
       </a>
       <div className="text-center text-lg m-2">
-        <p>created using:</p>
-        <a href="https://fakeapi.platzi.com/" target="_" className="hover:underline">platzi fake store</a>
+        <p>A project created for <a href="https://www.theodinproject.com/" className="underline capitalize" target="_">the odin project</a></p>
       </div>
       <p className="text-sm flex items-center gap-2 m-2">copyright 2024 <MdCopyright /></p>
     </footer>
