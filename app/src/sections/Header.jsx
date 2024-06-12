@@ -12,6 +12,7 @@ import {
   useDisclosure
 } from '@chakra-ui/react'
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Header = ({ cartNum }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -19,32 +20,32 @@ const Header = ({ cartNum }) => {
   return (
     <>
       <header className="text-text relative flex items-center justify-between md:justify-around p-3 border-b-[1px] font-montserrat">
-        <a className="flex items-center gap-2 cursor-pointer">
+        <Link className="flex items-center gap-2 cursor-pointer" to="/">
           <img src={logo} alt="logo" className="w-[75px]"/>
           <h1 className="hidden sm:block text-4xl text-montserrat font-bold uppercase"><span className="text-primary">Shopping</span><span className="text-secondary">Market</span></h1>
-        </a>
+        </Link>
         <div className="hidden lg:block">
           <div className="flex gap-12">
             <div>
-              <a className="group transition-all duration-300 hover:text-primary text-lg" href="/">
+              <Link className="group transition-all duration-300 hover:text-primary text-lg" to="/">
               Home
               <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-primary"></span>
-              </a>
+              </Link>
             </div>
-            <a className="group transition-all duration-300 hover:text-primary text-lg" href="/">
+            <Link className="group transition-all duration-300 hover:text-primary text-lg" to="/shop">
             Shop
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-primary"></span>
-            </a>
-            <a className="group transition-all duration-300 hover:text-primary text-lg" href="/">
+            </Link>
+            <Link className="group transition-all duration-300 hover:text-primary text-lg" to="/about">
             About
             <span className="block max-w-0 group-hover:max-w-full transition-all duration-300 h-0.5 bg-primary"></span>
-            </a>
+            </Link>
           </div>
         </div>
-        <a className="hidden lg:block relative cursor-pointer">
+        <Link className="hidden lg:block relative cursor-pointer" to="/cart">
           <FaShoppingCart className="text-4xl transition-all"/>
           {cartNum > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cartNum}</div>}
-        </a>
+        </Link>
         <div className="block lg:hidden">
           <Button className="bg-primary text-primary" onClick={onOpen}>
             <FaAlignJustify />
@@ -64,16 +65,16 @@ const Header = ({ cartNum }) => {
           <DrawerBody>
             <div className="flex justify-center">
               <div className="flex flex-col text-center">
-                <a className="font-semibold text-3xl text-primary mt-8" href="/">Home</a>
-                <a className="font-semibold text-3xl text-primary mt-8" href="/">Shop</a>
-                <a className="font-semibold text-3xl text-primary mt-8" href="/">About</a>
+                <Link className="font-semibold text-3xl text-primary mt-8" to="/" onClick={onClose}>Home</Link>
+                <Link className="font-semibold text-3xl text-primary mt-8" to="/shop" onClick={onClose}>Shop</Link>
+                <Link className="font-semibold text-3xl text-primary mt-8" to="/about" onClick={onClose}>About</Link>
               </div>
             </div>
             <div className="lg:hidden z-[1500] flex items-center justify-center fixed right-4 bottom-4 p-5 rounded-[50%] bg-gray-100">
-              <a className="relative cursor-pointer">
+              <Link className="relative cursor-pointer" to="/cart" onClick={onClose}>
                   <FaShoppingCart className="text-4xl transition-all"/>
                   {cartNum > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cartNum}</div>}
-              </a>
+              </Link>
             </div>
           </DrawerBody>
         </DrawerContent>
