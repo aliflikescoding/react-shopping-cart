@@ -9,7 +9,7 @@ import { Input } from '@chakra-ui/react'
 const Footer = () => {
   return (
     <footer>
-      <div className="flex justify-center border-2 p-10">
+      <div className="flex justify-center border-top-2 p-10">
         <div className="flex flex-col items-center gap-5">
           <h1 className="text-2xl font-bold">SIGN UP FOR OUR NEWS LETTER</h1>
           <Input placeholder='Email' />
