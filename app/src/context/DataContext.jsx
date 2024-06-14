@@ -5,6 +5,7 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
+  const [featuredProducts, setFeaturedProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -13,13 +14,16 @@ export const DataProvider = ({ children }) => {
     Promise.all([
       fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
-        .then(json => setProducts(json.slice(0, 18))),
+        .then(json => {
+          setProducts(json)
+          setFeaturedProducts(json.slice(0, 4))
+        }),
     ])
     .finally(() => setIsLoading(false));
   }, []);
 
   return (
-    <DataContext.Provider value={{ products, isLoading }}>
+    <DataContext.Provider value={{ products, featuredProducts, isLoading }}>
       {children}
     </DataContext.Provider>
   );

@@ -4,11 +4,11 @@ import {
   Tag,
 } from '@chakra-ui/react'
 
-const ShopCard = ({ id, title, price, category, image }) => {
+const FeaturedCard = ({ id, title, price, category, image }) => {
 
   return (
     <Link 
-      className="flex flex-col border-2 items-center justify-center cursor-pointer p-5 w-[350px] rounded-xl shadow-xl"
+      className="flex flex-col items-center justify-center border-2 cursor-pointer p-5 w-[200px] rounded-xl shadow-xl"
       to={`/shop/${id}`} 
       >
       <div className="flex flex-col gap-4 justify-start items-start">
@@ -16,12 +16,13 @@ const ShopCard = ({ id, title, price, category, image }) => {
         <h1 className='text-lg'>{title}</h1>
         <p className='font-bold text-2xl'>$ {price}</p>
         {category ? <Tag>{category}</Tag> : <Tag>Clothes</Tag>}
+        <Tag colorScheme='green'>Best Sellers</Tag>
       </div>
     </Link>
   )
 }
 
-ShopCard.propTypes = {
+FeaturedCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
@@ -29,4 +30,4 @@ ShopCard.propTypes = {
   id: PropTypes.number.isRequired,
 };
 
-export default ShopCard
+export default FeaturedCard
