@@ -84,7 +84,7 @@ const Header = ({ cartNum }) => {
 }
 
 Header.propTypes = {
-  cartNum: PropTypes.number.isRequired,
+  cartNum: PropTypes.number,
 };
 
 

@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './context/CardContext';
+import { CartProvider } from './context/CartContext';
 import { DataProvider } from './context/DataContext';
 import Header from './sections/Header';
 import HomePage from './pages/HomePage';
@@ -12,8 +12,8 @@ import Footer from './sections/Footer';
 
 const App = () => {
   return (
-    <DataProvider>
-      <CartProvider>
+    <CartProvider>
+      <DataProvider>
         <BrowserRouter>
           <Header />
           <Routes>
@@ -26,9 +26,8 @@ const App = () => {
           </Routes>
           <Footer />
         </BrowserRouter>
-      </CartProvider>
-    </DataProvider>
-    
+      </DataProvider>
+    </CartProvider>
   );
 };
 

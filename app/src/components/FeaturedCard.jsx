@@ -25,8 +25,8 @@ const FeaturedCard = ({ id, title, price, category, image }) => {
 FeaturedCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
-  category: PropTypes.string.isRequired,
-  image: PropTypes.array.isRequired,
+  category: PropTypes.string,
+  image: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
 };
 

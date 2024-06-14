@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { DataContext } from "../context/DataContext"
+import { CartContext } from "../context/CartContext";
 import { FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { Spinner } from '@chakra-ui/react';
@@ -10,6 +11,7 @@ import image2 from "../assets/placeholderimage2.avif"
 const ProductPage = () => {
   const { productId } = useParams();
   const { products, isLoading } = useContext(DataContext);
+  const { addToCart } = useContext(CartContext);
   const currentProduct = products.find((product) => product.id == productId);
   const [bigProductImg, setBigProductImg] = useState(null);
   const [currentAmount, setCurrentAmount] = useState(1);
@@ -34,9 +36,10 @@ const ProductPage = () => {
     setBigProductImg(image2);
   }
 
-  useEffect(() => {
-    console.log(bigProductImg);
-  }, [bigProductImg])
+  const handleAddCartClick = (currentItem, currentAmount) => {
+    addToCart(currentItem, currentAmount);
+    setCurrentAmount(1);
+  }
 
   return (
     <>
@@ -132,7 +135,7 @@ const ProductPage = () => {
                   <h1 className="font-thin text-gray-500 underline">Subtotal</h1>
                   <h1 className="text-2xl">$ {currentProduct.price * currentAmount}</h1>
                 </div>
-                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background">
+                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => handleAddCartClick(currentProduct, currentAmount)}>
                 < FaPlus />
                  add to cart
                 </div>
@@ -152,7 +155,7 @@ const ProductPage = () => {
                   <h1 className="font-thin text-gray-500 underline">Subtotal</h1>
                   <h1 className="text-2xl">$ {currentProduct.price * currentAmount}</h1>
                 </div>
-                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background">
+                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => handleAddCartClick(currentProduct, currentAmount)}>
                 < FaPlus />
                  add to cart
                 </div>

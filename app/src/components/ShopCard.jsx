@@ -25,7 +25,7 @@ ShopCard.propTypes = {
   title: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
-  image: PropTypes.array.isRequired,
+  image: PropTypes.string.isRequired,
   id: PropTypes.number.isRequired,
 };
 
