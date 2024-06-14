@@ -19,7 +19,7 @@ const ShopPage = () => {
         <div className="max-w-screen-xl flex justify-center flex-1 flex-wrap gap-5">
           {
             products.map((product) => (
-              <ShopCard key={product.id} id={product.id} title={product.title} price={product.price} category={product.category.name} images={product.images}/>
+              <ShopCard key={product.id} id={product.id} title={product.title} price={product.price} category={product.category.name} image={product.image}/>
             ))
           }
         </div>

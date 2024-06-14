@@ -1,9 +1,11 @@
 import { useParams } from "react-router-dom"
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { DataContext } from "../context/DataContext"
 import { FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
-import { Spinner } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react';
+import image1 from "../assets/placeholderimage1.avif";
+import image2 from "../assets/placeholderimage2.avif"
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -22,6 +24,20 @@ const ProductPage = () => {
     setCurrentAmount(currentAmount + 1);
   }
 
+  const handelBigImageClick1 = () => {
+    setBigProductImg(currentProduct.image);
+  }
+  const handelBigImageClick2 = () => {
+    setBigProductImg(image1);
+  }
+  const handelBigImageClick3 = () => {
+    setBigProductImg(image2);
+  }
+
+  useEffect(() => {
+    console.log(bigProductImg);
+  }, [bigProductImg])
+
   return (
     <>
       {
@@ -35,34 +51,52 @@ const ProductPage = () => {
           <div className="flex p-12 lg:p-[auto] flex-col lg:flex-row justify-center my-12 gap-5">
             <div className="block xl:hidden">
                 <div className="flex flex-col gap-12">
-                  <img src={`${bigProductImg === null ? currentProduct.images[0] : bigProductImg}`} alt="big image" className="w-[350px] rounded-xl"/>
+                  <img src={`${bigProductImg === null ? currentProduct.image : bigProductImg}`} alt="big image" className="w-[350px] rounded-xl"/>
                   <div className="flex gap-4">
-                    {currentProduct.images.map((image, index) => (
                       <div
-                      key={image}
-                      onClick={() => setBigProductImg(image)}
-                      className={`cursor-pointer ${(bigProductImg === null && index === 0 || bigProductImg === image) && "border-primary"} border-2 rounded-xl`}
+                      onClick={handelBigImageClick1}
+                      className={`cursor-pointer ${bigProductImg === null && "border-primary"} ${bigProductImg === currentProduct.image && "border-primary"} border-2 rounded-xl`}
                       >
-                        <img src={`${image}`} alt="small image" className="w-[75px] rounded-xl" />
+                        <img src={`${currentProduct.image}`} alt="small image" className="w-[75px] rounded-xl" />
                       </div>
-                    ))}
+                      <div
+                      onClick={handelBigImageClick2}
+                      className={`cursor-pointer ${bigProductImg === image1 && "border-primary"} border-2 rounded-xl`}
+                      >
+                        <img src={`${image1}`} alt="small image" className="w-[75px] rounded-xl" />
+                      </div>
+                      <div
+                      onClick={handelBigImageClick3}
+                      className={`cursor-pointer ${bigProductImg === image2 && "border-primary"} border-2 rounded-xl`}
+                      >
+                        <img src={`${image2}`} alt="small image" className="w-[75px] rounded-xl" />
+                      </div>
                   </div>
                 </div>
             </div>
             <div className="max-w-screen-xl flex gap-12">
               <div className="hidden xl:block">
                 <div className="flex flex-col gap-12">
-                  <img src={`${bigProductImg === null ? currentProduct.images[0] : bigProductImg}`} alt="big image" className="w-[350px] rounded-xl"/>
+                  <img src={`${bigProductImg === null ? currentProduct.image : bigProductImg}`} alt="big image" className="w-[350px] rounded-xl"/>
                   <div className="flex gap-4">
-                    {currentProduct.images.map((image, index) => (
                       <div
-                      key={image}
-                      onClick={() => setBigProductImg(image)}
-                      className={`cursor-pointer ${(bigProductImg === null && index === 0 || bigProductImg === image) && "border-primary"} border-2 rounded-xl`}
+                      onClick={handelBigImageClick1}
+                      className={`cursor-pointer ${bigProductImg === null && "border-primary"} ${bigProductImg === currentProduct.image && "border-primary"} border-2 rounded-xl`}
                       >
-                        <img src={`${image}`} alt="small image" className="w-[75px] rounded-xl" />
+                        <img src={`${currentProduct.image}`} alt="small image" className="w-[75px] rounded-xl" />
                       </div>
-                    ))}
+                      <div
+                      onClick={handelBigImageClick2}
+                      className={`cursor-pointer ${bigProductImg === image1 && "border-primary"} border-2 rounded-xl`}
+                      >
+                        <img src={`${image1}`} alt="small image" className="w-[75px] rounded-xl" />
+                      </div>
+                      <div
+                      onClick={handelBigImageClick3}
+                      className={`cursor-pointer ${bigProductImg === image2 && "border-primary"} border-2 rounded-xl`}
+                      >
+                        <img src={`${image2}`} alt="small image" className="w-[75px] rounded-xl" />
+                      </div>
                   </div>
                 </div>
               </div>

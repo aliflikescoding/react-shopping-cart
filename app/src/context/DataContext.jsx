@@ -5,25 +5,21 @@ export const DataContext = createContext();
 
 export const DataProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
 
     Promise.all([
-      fetch('https://api.escuelajs.co/api/v1/products')
+      fetch('https://fakestoreapi.com/products')
         .then(res => res.json())
         .then(json => setProducts(json.slice(0, 18))),
-      fetch('https://api.escuelajs.co/api/v1/categories')
-        .then(res => res.json())
-        .then(json => setCategories(json))
     ])
     .finally(() => setIsLoading(false));
   }, []);
 
   return (
-    <DataContext.Provider value={{ products, categories, isLoading }}>
+    <DataContext.Provider value={{ products, isLoading }}>
       {children}
     </DataContext.Provider>
   );
