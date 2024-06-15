@@ -6,7 +6,8 @@ import { FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
 import { Spinner } from '@chakra-ui/react';
 import image1 from "../assets/placeholderimage1.avif";
-import image2 from "../assets/placeholderimage2.avif"
+import image2 from "../assets/placeholderimage2.avif";
+import { useToast } from '@chakra-ui/react';
 
 const ProductPage = () => {
   const { productId } = useParams();
@@ -15,6 +16,7 @@ const ProductPage = () => {
   const currentProduct = products.find((product) => product.id == productId);
   const [bigProductImg, setBigProductImg] = useState(null);
   const [currentAmount, setCurrentAmount] = useState(1);
+  const toast = useToast()
 
   const handleMinClick = () => {
     if (currentAmount !== 1) {
@@ -135,7 +137,17 @@ const ProductPage = () => {
                   <h1 className="font-thin text-gray-500 underline">Subtotal</h1>
                   <h1 className="text-2xl">$ {currentProduct.price * currentAmount}</h1>
                 </div>
-                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => handleAddCartClick(currentProduct, currentAmount)}>
+                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => {
+                  handleAddCartClick(currentProduct, currentAmount)
+                  toast({
+                    title: 'Item Added.',
+                    description: "Item has been added to your shopping cart",
+                    status: 'success',
+                    position: 'top',
+                    duration: 1000,
+                    isClosable: true,
+                  }) 
+                }}>
                 < FaPlus />
                  add to cart
                 </div>
@@ -155,7 +167,16 @@ const ProductPage = () => {
                   <h1 className="font-thin text-gray-500 underline">Subtotal</h1>
                   <h1 className="text-2xl">$ {currentProduct.price * currentAmount}</h1>
                 </div>
-                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => handleAddCartClick(currentProduct, currentAmount)}>
+                <div className="capitalize cursor-pointer gap-2 flex justify-center items-center py-2 rounded-xl bg-primary text-background" onClick={() => {
+                  handleAddCartClick(currentProduct, currentAmount)
+                  toast({
+                    title: 'Item Added.',
+                    description: "Item has been added to your shopping cart",
+                    status: 'success',
+                    position: 'top',
+                    isClosable: true,
+                  })          
+                }}>
                 < FaPlus />
                  add to cart
                 </div>

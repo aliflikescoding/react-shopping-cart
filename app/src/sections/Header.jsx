@@ -11,11 +11,13 @@ import {
   Button,
   useDisclosure
 } from '@chakra-ui/react'
-import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { CartContext } from "../context/CartContext";
+import { useContext } from "react";
 
-const Header = ({ cartNum }) => {
+const Header = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { cart } = useContext(CartContext);
 
   return (
     <>
@@ -44,7 +46,7 @@ const Header = ({ cartNum }) => {
         </div>
         <Link className="hidden lg:block relative cursor-pointer" to="/cart">
           <FaShoppingCart className="text-4xl transition-all"/>
-          {cartNum > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cartNum}</div>}
+          {cart.length > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cart.length}</div>}
         </Link>
         <div className="block lg:hidden">
           <Button className="bg-primary text-primary" onClick={onOpen}>
@@ -73,7 +75,7 @@ const Header = ({ cartNum }) => {
             <div className="lg:hidden z-[1500] flex items-center justify-center fixed right-4 bottom-4 p-5 rounded-[50%] bg-gray-100">
               <Link className="relative cursor-pointer" to="/cart" onClick={onClose}>
                   <FaShoppingCart className="text-4xl transition-all"/>
-                  {cartNum > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cartNum}</div>}
+                  {cart.length > 0 && <div className="absolute text-sm right-[-10px] bottom-[-5px] bg-red-500 p-1 px-2 rounded-[50%]">{cart.length}</div>}
               </Link>
             </div>
           </DrawerBody>
@@ -82,10 +84,6 @@ const Header = ({ cartNum }) => {
     </>
   )
 }
-
-Header.propTypes = {
-  cartNum: PropTypes.number,
-};
 
 
 export default Header
