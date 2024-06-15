@@ -1,6 +1,5 @@
 import logo from "../assets/shopping-market-logo.png";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaAlignJustify } from "react-icons/fa";
+import { FaShoppingCart, FaAlignJustify } from "react-icons/fa";
 import {
   Drawer,
   DrawerBody,
