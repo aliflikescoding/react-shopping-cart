@@ -1,5 +1,4 @@
 import image from "../assets/homepageimage.svg"
-import backgroundImage from "../assets/waveBackground.svg";
 import { Link } from 'react-router-dom';
 import { useContext } from "react";
 import { DataContext } from "../context/DataContext"
@@ -12,7 +11,7 @@ const HomePage = () => {
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row gap-12 justify-center items-start h-[100vh] p-12 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${backgroundImage})` }}>
+      <div className="flex flex-col lg:flex-row gap-12 justify-center items-start h-[100vh] p-12 bg-no-repeat bg-cover" style={{ backgroundImage: `url(${`/waveBackground.svg`})` }}>
         <div>
           <h1 className="uppercase text-4xl sm:text-6xl">Shop now to get<br /><span className="text-primary font-semibold">amazing deals</span><br /> in shopping market</h1>
           <div className="pt-7 flex gap-3">
