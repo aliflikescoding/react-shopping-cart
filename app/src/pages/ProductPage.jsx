@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom"
 import { useContext, useState } from "react";
-import { DataContext } from "../context/DataContext"
+import { DataContext } from "../context/DataContext";
 import { CartContext } from "../context/CartContext";
 import { FaStar } from "react-icons/fa";
 import { FaPlus } from "react-icons/fa6";
@@ -125,7 +125,7 @@ const ProductPage = () => {
                 <h1>Change amount and Purchase</h1>
                 <div className="flex gap-5">
                   <div className="flex items-center gap-8 border-2 p-1 rounded-xl">
-                    <button><span className={`${currentAmount === 1 ? "text-gray-300" : "text-primary rounded-md hover:bg-gray-300"} p-1 text-xl`} onClick={handleMinClick}>-</span></button>
+                    <button><span className={`${currentAmount === 1 ? "text-gray-300 cursor-default" : "text-primary rounded-md hover:bg-gray-300"} p-1 text-xl`} onClick={handleMinClick}>-</span></button>
                     <p className="text-xl">{currentAmount}</p>
                     <button className="text-xl text-primary hover:bg-gray-300 rounded-md p-1" onClick={handleAddClick}>+</button>
                   </div>
@@ -145,7 +145,7 @@ const ProductPage = () => {
                 <h1>Change amount and Purchase</h1>
                 <div className="flex gap-5">
                   <div className="flex items-center gap-8 border-2 p-1 rounded-xl">
-                    <button><span className={`${currentAmount === 1 ? "text-gray-300" : "text-primary rounded-md hover:bg-gray-300"} p-1 text-xl`} onClick={handleMinClick}>-</span></button>
+                    <button><span className={`${currentAmount === 1 ? "text-gray-300 cursor-default" : "text-primary rounded-md hover:bg-gray-300"} p-1 text-xl`} onClick={handleMinClick}>-</span></button>
                     <p className="text-xl">{currentAmount}</p>
                     <button className="text-xl text-primary hover:bg-gray-300 rounded-md p-1" onClick={handleAddClick}>+</button>
                   </div>
